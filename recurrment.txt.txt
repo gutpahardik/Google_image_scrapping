@@ -1,0 +1,14 @@
+# Simple Web Scraping 
+
+import requests            
+from bs4 import BeautifulSoup  
+url = "https://example.com"
+try:
+    response = requests.get(url)  # Page download
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, 'html.parser')  # Page parse
+        print("Page Title:", soup.title.text)  # Title print
+    else:
+        print("Page fetch failed:", response.status_code)
+except Exception as e:
+    print("Error occurred:", e)
